@@ -1,0 +1,24 @@
+{
+  "name": "Ollama (modelo via .env)",
+  "initializeCommand": "sh -c 'test -f .env || cp .env.example .env'",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "mounts": [
+    "source=ollama-openclaude-ollama-data,target=/root/.ollama,type=volume"
+  ],
+  "runArgs": [
+    "--gpus=all",
+    "--env-file",
+    "${localWorkspaceFolder}/.env"
+  ],
+  "forwardPorts": [11434],
+  "portsAttributes": {
+    "11434": {
+      "label": "Ollama API",
+      "onAutoForward": "notify"
+    }
+  },
+  "overrideCommand": false
+}

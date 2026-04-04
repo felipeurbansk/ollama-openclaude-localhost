@@ -2,6 +2,7 @@
 set -e
 readonly defaultModel="qwen2.5-coder:7b"
 readonly model="${OLLAMA_PULL_MODEL:-$defaultModel}"
+echo "docker-entrypoint: OLLAMA_PULL_MODEL=$model"
 ollama serve &
 ollamaPid=$!
 seconds=0
