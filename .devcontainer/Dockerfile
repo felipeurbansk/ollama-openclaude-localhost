@@ -5,8 +5,6 @@ ARG NODE_MAJOR=22
 ENV DEBIAN_FRONTEND=noninteractive
 ENV CLAUDE_CODE_USE_OPENAI=1
 ENV OPENAI_BASE_URL=http://localhost:11434/v1
-ENV OPENAI_API_KEY=fake-key
-ENV OPENAI_MODEL=hhao/qwen2.5-coder-tools:14b
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
